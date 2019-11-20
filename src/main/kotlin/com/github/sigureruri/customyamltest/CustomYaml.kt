@@ -1,53 +1,26 @@
 package com.github.sigureruri.customyamltest
 
-import org.bukkit.configuration.file.YamlConfiguration
-import java.io.File
-import java.io.IOException
-import java.io.InputStreamReader
+import org.bukkit.plugin.java.JavaPlugin
 
-class CustomYaml(
-        val fileName: String,
-        val fromJar: Boolean
-) {
+class CustomYaml : JavaPlugin() {
 
-    private val INSTANCE = CustomYamlTest.INSTANCE
-    private val file: File = File(INSTANCE.dataFolder, fileName)
-    lateinit var yaml: YamlConfiguration
+    lateinit var config : Yaml
+    lateinit var config1: Yaml
 
-    init {
-        saveDefault()
-        reload()
+    override fun onEnable() {
+        dataFolder.mkdir()
+
+        INSTANCE = this
+
+        config = Yaml("config.yml", false)
+        config1 = Yaml("config1.yml", true)
     }
 
-    fun saveDefault() {
-        if (!file.exists()) {
-            if (fromJar) {
-                INSTANCE.saveResource(fileName, false)
-            } else {
-                file.createNewFile()
-            }
-        }
+    override fun onDisable() {
     }
 
-    fun save() {
-        try {
-            yaml.save(file)
-        } catch (e: IOException) {
-            INSTANCE.logger.warning("保存中に例外が発生しました...")
-            e.printStackTrace()
-        }
+    companion object {
+        lateinit var INSTANCE: CustomYaml
+            private set
     }
-
-    fun reload() {
-        yaml = YamlConfiguration.loadConfiguration(file)
-
-        val reader = InputStreamReader(
-                INSTANCE.getResource(fileName) ?: return,
-                Charsets.UTF_8)
-
-        yaml.setDefaults(
-                YamlConfiguration.loadConfiguration(reader)
-        )
-    }
-
 }
