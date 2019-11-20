@@ -21,18 +21,6 @@ class CustomYamlTest : JavaPlugin() {
     override fun onDisable() {
     }
 
-    override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {
-        if (args.size == 2) {
-            val subCommand = if (args.isEmpty()) "" else args[0]
-            val subCommand1 = if (args.size <= 1) "" else args[1]
-            config1.yaml.set(subCommand, subCommand1)
-            config1.save()
-            sender.sendMessage("書き込み...")
-        }
-
-        return true
-    }
-
     companion object {
         lateinit var INSTANCE: CustomYamlTest
             private set

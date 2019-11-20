@@ -3,6 +3,3 @@ version: @version@
 main: com.github.sigureruri.customyamltest.CustomYamlTest
 api-version: 1.13
 authors: [SigureRuri]
-
-commands:
-  customyamltest:
