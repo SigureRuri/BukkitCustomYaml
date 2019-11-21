@@ -21,7 +21,11 @@ class Yaml(
     }
 
     fun saveDefault() {
-        plugin.dataFolder.mkdir()
+        val dataFolder = plugin.dataFolder
+        if (!dataFolder.exists() || !dataFolder.isDirectory) {
+            dataFolder.mkdir()
+        }
+        String
         if (!file.exists()) {
             if (fromJar) {
                 plugin.saveResource(fileName, false)
@@ -35,7 +39,7 @@ class Yaml(
         try {
             yaml.save(file)
         } catch (e: IOException) {
-            plugin.logger.warning("保存中に例外が発生しました...")
+            plugin.logger.warning("An exception occurrence while saving $fileName...")
             e.printStackTrace()
         }
     }
