@@ -6,7 +6,7 @@ import java.io.File
 import java.io.IOException
 import java.io.InputStreamReader
 
-class Yaml(
+open class Yaml(
         val plugin: JavaPlugin,
         val fileName: String,
         val fromJar: Boolean
