@@ -1,5 +1,5 @@
 name: CustomYamlTest
 version: @version@
-main: com.github.sigureruri.customyamltest.CustomYamlTest
+main: com.github.sigureruri.customyamltest.CustomYaml
 api-version: 1.13
 authors: [SigureRuri]
