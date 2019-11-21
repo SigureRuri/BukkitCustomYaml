@@ -1,4 +1,4 @@
-package com.github.sigureruri.customyamltest
+package com.github.sigureruri.customyaml
 
 import org.bukkit.configuration.file.YamlConfiguration
 import org.bukkit.plugin.java.JavaPlugin

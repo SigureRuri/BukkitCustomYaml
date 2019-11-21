@@ -1,4 +1,4 @@
-package com.github.sigureruri.customyamltest.legacy
+package com.github.sigureruri.customyaml.legacy
 
 import org.bukkit.configuration.file.YamlConfiguration
 import org.bukkit.plugin.java.JavaPlugin
