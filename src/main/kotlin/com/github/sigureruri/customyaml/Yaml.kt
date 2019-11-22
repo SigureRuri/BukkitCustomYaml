@@ -5,7 +5,7 @@ import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
 import java.io.IOException
 
-class Yaml(
+open class Yaml(
         val plugin: JavaPlugin,
         val fileName: String,
         val fromJar: Boolean
